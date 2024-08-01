@@ -1,0 +1,57 @@
+66.// Singleton design partten imp
+public class Student
+{
+    public  static Student studentobject;
+    
+       int id;
+      
+      String name;
+      
+      
+      public int getId(){
+          return id;
+      }
+      
+      public void setId(int id){
+          this.id=id;
+      }
+      
+      public String getName(){
+          return name;
+      }
+      
+      public void setName(String name){
+          this.name=name;
+      }
+      
+      private Student(){
+          
+      }
+    
+    
+      public static synchronized Student getStudentObject(){
+          
+          if(studentobject == null){
+              studentobject=new Student();
+          }
+          
+          return studentobject;
+      }
+	public static void main(String[] args) {
+	
+	   Student st1=Student.getStudentObject();
+	   Student st2=Student.getStudentObject();
+	   Student st3=Student.getStudentObject();
+	   
+	   System.out.println(st1);
+	   System.out.println(st2);
+	   System.out.println(st3);
+	   
+	
+	}
+}
+
+op/ --   same object
+com.Student@4617c264
+com.Student@4617c264
+com.Student@4617c264
